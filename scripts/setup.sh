@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-TARGET_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/eww-standalone_widgets"
+TARGET_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/eww"
 
 DESKTOP_ENV="${XDG_CURRENT_DESKTOP:-}${DESKTOP_SESSION:-}"
 

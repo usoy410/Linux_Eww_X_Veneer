@@ -6,6 +6,11 @@ TARGET_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/eww"
 
 DESKTOP_ENV="${XDG_CURRENT_DESKTOP:-}${DESKTOP_SESSION:-}"
 
+if [[ "${EUID}" -eq 0 ]]; then
+  printf '[setup] Do not run setup as root. Run it as your normal user.\n'
+  exit 1
+fi
+
 log() {
   printf '[setup] %s\n' "$1"
 }
@@ -32,9 +37,9 @@ install_with_apt() {
   fi
 }
 
-install_with_pacman() {
-  log "Using pacman"
-  $SUDO pacman -Sy --noconfirm cava eww
+install_with_yay() {
+  log "Using yay"
+  yay -Sy --noconfirm cava eww
 }
 
 install_with_dnf() {
@@ -50,8 +55,8 @@ install_with_zypper() {
 install_dependencies() {
   if have_cmd apt-get; then
     install_with_apt
-  elif have_cmd pacman; then
-    install_with_pacman
+  elif have_cmd yay; then
+    install_with_yay
   elif have_cmd dnf; then
     install_with_dnf
   elif have_cmd zypper; then

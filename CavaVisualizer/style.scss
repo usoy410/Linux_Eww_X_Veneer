@@ -1,3 +1,10 @@
+window, .cava-container, .controls, button {
+  background-color: transparent;
+  background: none;
+  box-shadow: none;
+  border: none;
+}
+
 .cava-bars {
   /* JetBrains Mono or Fira Code are best for this */
   font-family: "JetBrainsMono Nerd Font", "monospace";

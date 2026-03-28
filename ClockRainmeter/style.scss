@@ -1,4 +1,11 @@
 // ClockRainMeter
+window, .clock-box {
+  background-color: transparent;
+  background: none;
+  box-shadow: none;
+  border: none;
+}
+
 .main-day {
   font-family: "Anurati";
   font-size: 7rem;

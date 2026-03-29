@@ -1,17 +1,5 @@
 ;; --- Tool Menu (Battery + Wifi) ---
 
-(defpoll battery_percentage_var :interval "10s"
-  "/usr/bin/upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | awk '{print $2}' || echo 'N/A'")
-
-(defpoll battery_icon_var :interval "10s"
-  "sh ~/.config/veneer/eww/widgets/ToolMenu/script/get_battery_icon.sh")
-
-(defpoll wifi_name :interval "5s"
-  "sh ~/.config/veneer/eww/widgets/ToolMenu/wifi_popup/wifi name")
-
-(defpoll wifi_icon :interval "5s"
-  "sh ~/.config/veneer/eww/widgets/ToolMenu/wifi_popup/wifi icon")
-
 (defwidget tool_menu_widget []
   (box :class "tool-menu-widget" :orientation "horizontal" :spacing 10
     (button :class "wifi-button"

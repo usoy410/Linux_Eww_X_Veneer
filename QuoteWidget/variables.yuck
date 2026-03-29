@@ -1,4 +1,5 @@
-;;(deflisten fecthing_quote :interval "12h" "sh /home/usoy/.config/veneer/eww/QuoteWidget/script/fetch_quote.sh")
+;; Runs fetch script periodically for side effects (file updates).
+(defpoll quote_fetch_tick :interval "12h" "sh ~/.config/veneer/eww/widgets/QuoteWidget/script/fetch_quote.sh >/dev/null 2>&1; date +%s")
 
-(defpoll quote_var :interval "60s" "cat quotes/quote.txt 2>/dev/null || echo 'No quote available'")
-(defpoll author_var :interval "60s" "cat quotes/author.txt 2>/dev/null || echo 'Unknown'")
+(defpoll quote_var :interval "60s" "cat ~/.config/veneer/eww/widgets/QuoteWidget/quotes/quote.txt 2>/dev/null || echo 'No quote available'")
+(defpoll author_var :interval "60s" "cat ~/.config/veneer/eww/widgets/QuoteWidget/quotes/author.txt 2>/dev/null || echo 'Unknown'")

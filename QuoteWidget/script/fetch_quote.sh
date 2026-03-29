@@ -3,13 +3,13 @@
 # Script to fetch daily inspirational quote from ZenQuotes API
 # Runs on boot, checks if it's a new day, fetches if needed
 
-CONFIG_DIR="~/.config/veneer/eww/widgets/QuoteWidgets"
+CONFIG_DIR="$HOME/.config/veneer/eww/widgets/QuoteWidget"
 QUOTE_FILE="$CONFIG_DIR/quotes/quote.txt"
 AUTHOR_FILE="$CONFIG_DIR/quotes/author.txt"
 DATE_FILE="$CONFIG_DIR/quotes/last_fetch_date.txt"
 
-# Ensure config directory exists
-mkdir -p "$CONFIG_DIR"
+# Ensure config and quote directories exist
+mkdir -p "$CONFIG_DIR/quotes"
 
 # Get today's date in YYYY-MM-DD format
 TODAY=$(date +%Y-%m-%d)
